@@ -13,10 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path
-from tickets.views import WelcomeView
-
+from django.urls import path, re_path
+from tickets.views import WelcomeView, MenuView, OperationView
 
 urlpatterns = [
     path('welcome/', WelcomeView.as_view()),
+    path('menu/', MenuView.as_view()),
+    re_path('get_ticket/(?P<operation>\w+)', OperationView.as_view())
 ]
+# \d+ means one or more digit [0-9] (depending on LOCALE)
+# \d- means a digit followed by a dash -
+
+# \w+ means one or more word character [a-zA-Z0-9_] (depending on LOCALE)
+# \w- means a word char followed by a dash -
