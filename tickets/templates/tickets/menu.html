@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome to the Hypercar Service!</title>
+    <title>Menu</title>
 </head>
     <body>
         <h2>Welcome to the Hypercar Service!</h2>
-        <br>
-        <h2>Menu:</h2>
-        {% for link, name in operations.items %}
-            <p>
-                <a href="/get_ticket/{{ link }}">{{ name }}</a>
-            </p>
+        <ul>
+        {% for link, value in operations.items %}
+            <li>
+                <a href="/get_ticket/{{ link }}">{{ value.name }}</a>
+            </li>
         {% endfor %}
+        </ul>
     </body>
 </html>
